@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="globalUtilities.RetryAnalyzer"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="Funxtional Tests(failed)">
+    <method-selectors>
+      <method-selector>
+        <script language="BeanShell">
+          <![CDATA[(!Collections.disjoint(groups.keySet(), Arrays.asList(System.getProperty("suiteName").split("\\s*,\\s*"))) && (!!Collections.disjoint(groups.keySet(), Arrays.asList(System.getProperty("exclude").split("\\s*,\\s*")))));]]>
+        </script>
+      </method-selector>
+    </method-selectors>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="tests.AppTest">
+        <methods>
+          <include name="print2"/>
+        </methods>
+      </class> <!-- tests.AppTest -->
+    </classes>
+  </test> <!-- Funxtional Tests(failed) -->
+</suite> <!-- Failed suite [Suite] -->
